@@ -1,2 +1,1 @@
-# Clash-of-Code
-Clash of Code local dev starter
+# Clash of Code local dev starter
