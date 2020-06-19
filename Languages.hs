@@ -1,0 +1,29 @@
+module Languages where
+
+-- Bash
+-- C
+-- C#
+-- C++
+-- Clojure
+-- D
+-- Dart
+-- F#
+-- Go
+-- Groovy
+-- Haskell
+-- Java
+-- JavaScript
+-- Kotlin
+-- Lua
+-- Objective-C
+-- OCaml
+-- Pascal
+-- Perl
+-- PHP
+-- Python 3
+-- Ruby
+-- Rust
+-- Scala
+-- Swift
+-- TypeScript
+-- VB.NET
