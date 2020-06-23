@@ -1,2 +1,2 @@
 main=interact$p
-p s="TODO"
+p s=show$ s
