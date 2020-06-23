@@ -119,3 +119,16 @@ main21_3=interact$pure.head.foldl(\x y->tail$dropWhile(/=y)x)(cycle"JFMAMJJASOND
 
 -- JFMAMJJASON
 -- D
+
+main22=interact$p22
+p22 s=show$c22$read<$>lines s
+c22 [t,r]=(\i->(/10)$round$i*10)<$>[r * cos a, r * sin a]
+ where a=pi*t/180
+-- You have to convert Polar coordinates (θ, r) to normal (x, y) coordinates.
+-- One line: x, y separated by ", " (comma and space)
+-- The x and y coordinates will have to be rounded of to one decimal place even if there are no decimals.
+
+-- p "30\n12"
+-- 10.4, 6.0
+
+main22_2=interact$intercalate", ".map(printf"%0.1f").(\[a,r]->let a'=(a::Double)*pi/180in[r*cos a',r*sin a']).map read.words
