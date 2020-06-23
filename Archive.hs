@@ -187,3 +187,52 @@ main28_2=interact$f28_2.words
 -- p "I have good coverage of spray tan"
 
 -- I have good covfefe of spray tan
+
+-- main29=interact$p29
+-- p29 s=show$unlines$map (\s->sort$filter (\c ->c `elem` "aeiouAEIOU") s)$tail$lines s
+
+-- import Data.Maybe
+-- import Data.List
+-- import qualified Data.List.NonEmpty as N
+-- import Data.Char
+-- main=interact$unlines.map(fromMaybe"NONE".fmap(pure.N.head).N.nonEmpty.sortOn toLower.filter(`elem`"aeiouAEIOU")).tail.lines
+
+-- p "3\nPLOP\nXPLDR\nLOLILOL"
+
+-- O
+-- NONE
+-- I
+
+main30=interact$p30
+p30 s=head$last$sortOn length$group$sort$subsequences s
+
+main31=interact$p31
+p31 s=y
+ where
+  [a,b]=lines s
+  x=take(length b)$concat$repeat a
+  y=map(\c->b!!read [c])x
+
+-- p "231450\n state below"
+-- taste elbow
+
+-- import qualified Data.Text as T
+-- main=interact$p
+-- p s=show$T.zipWith (T.append) x y
+--  where
+--   (x:y)=T.splitOn " " s
+
+-- import Data.List.Split
+-- g w(l,i)=[w!!i]++l
+-- f(i:j)=unwords$map(g i)$zip j[0..]
+-- main=interact$f.(splitOn" ")
+
+-- p "Tiam his s  essage"
+-- This is a message
+
+
+-- import Data.List
+-- w=words
+-- g n(i,j)=div(j*100)n==i
+-- f[n,l]=[i|(i,j)<-filter(g(read n))[(read v,length$filter(==v)$w l)|v<-(nub(w l))]]
+-- main=interact$show.sum.f.lines
