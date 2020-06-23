@@ -45,8 +45,26 @@ main14=interact$head.head.filter ((==1).length).group.sort.tail.words
 
 main15=interact$show.popCount.(\c->read c::Int)
 
-main16=interact$p
-p s=[last$printf"%b"$(`uncurry`(read&&&(DTIR.hexDigitToInt.last.printf"%08x".(\z->read z::Int))$s))(*)]::String
+main16=interact$p16
+p16 s=[last$printf"%b"$(`uncurry`(read&&&(DTIR.hexDigitToInt.last.printf"%08x".(\z->read z::Int))$s))(*)]::String
 -- Given a number N, multiply it by the last character of its hexadecimal form, then print the last digit of its binary representation.
 -- 142359
 -- 1
+
+-- What you want to achieve is getting the s to the end of the expression, so you can remove it, right. So you try to remove everything that is surrounding it. This might not be the best way to write it, but on way to get closer is first removing the []
+-- p s=pure.last.printf"%b"$(`uncurry`(read&&&(D.hexDigitToInt.last.printf"%08x".(\z->read z::Int))$s))(*)::String
+-- after that, you can remove more parantheses by applying the arguments to uncurry in their normal order
+-- p s=pure.last.printf"%b".uncurry(*)$(read&&&(D.hexDigitToInt.last.printf"%08x".(\z->read z::Int))$s)::String
+-- and then your basically done.
+-- p=pure.last.printf"%b".uncurry(*).(read&&&(D.hexDigitToInt.last.printf"%08x".(\z->read z::Int)))
+
+main17=interact$p17
+p17 s=r
+ where
+  l=lines s
+  x=words<$>(init$tail$l)
+  t=last$l
+  r=show$(x,t)
+
+-- p "4\nShanghai 25\nMadrid 6\nBangkok 10\nManila 13\nMa"
+-- 19
