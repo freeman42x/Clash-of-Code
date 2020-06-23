@@ -25,6 +25,7 @@ executable Clash-of-Code
   -- other-extensions:
   build-depends:       base,
                        containers,
+                       split,
                        text,
                        time
   -- hs-source-dirs:

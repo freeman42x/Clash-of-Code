@@ -120,10 +120,10 @@ main21_3=interact$pure.head.foldl(\x y->tail$dropWhile(/=y)x)(cycle"JFMAMJJASOND
 -- JFMAMJJASON
 -- D
 
-main22=interact$p22
-p22 s=show$c22$read<$>lines s
-c22 [t,r]=(\i->(/10)$round$i*10)<$>[r * cos a, r * sin a]
- where a=pi*t/180
+-- main22=interact$p22
+-- p22 s=show$c22$read<$>lines s
+-- c22 [t,r]=(\i->(/10)$round$i*10)<$>[r * cos a, r * sin a]
+--  where a=pi*t/180
 -- You have to convert Polar coordinates (θ, r) to normal (x, y) coordinates.
 -- One line: x, y separated by ", " (comma and space)
 -- The x and y coordinates will have to be rounded of to one decimal place even if there are no decimals.
@@ -133,7 +133,7 @@ c22 [t,r]=(\i->(/10)$round$i*10)<$>[r * cos a, r * sin a]
 
 main22_2=interact$intercalate", ".map(printf"%0.1f").(\[a,r]->let a'=(a::Double)*pi/180in[r*cos a',r*sin a']).map read.words
 
-main=interact$unlines.(unwords.reverse<$>).transpose.map words.drop 2.lines
+main23=interact$unlines.(unwords.reverse<$>).transpose.map words.drop 2.lines
 
 -- Take an NxM grid of numbers and return the MxN grid that results from rotating it 90 degrees clockwise.
 
@@ -142,11 +142,19 @@ main=interact$unlines.(unwords.reverse<$>).transpose.map words.drop 2.lines
 -- 5 2
 -- 6 3
 
-main=interact$p
-p s=show$product$map signum$z$(\c->read c::Int)<$>words s
+main24=interact$p24
+p24 s=show$product$map signum$z$(\c->read c::Int)<$>words s
  where z [a,b]=enumFromTo a b
 
 -- p "-9 -6"
 -- 1
 
-main=interact$show.product.map signum.z.(read<$>).words where z[a,b]=enumFromTo a b
+main25=interact$show.product.map signum.z25.(read<$>).words where z25[a,b]=enumFromTo a b
+
+main26=interact$unlines.group.sort.map toLower.filter isAlpha.last.lines
+
+-- p "10\nabcabcabcb"
+
+-- aaa
+-- bbbb
+-- ccc
