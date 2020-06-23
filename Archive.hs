@@ -141,3 +141,12 @@ main=interact$unlines.(unwords.reverse<$>).transpose.map words.drop 2.lines
 -- 4 1
 -- 5 2
 -- 6 3
+
+main=interact$p
+p s=show$product$map signum$z$(\c->read c::Int)<$>words s
+ where z [a,b]=enumFromTo a b
+
+-- p "-9 -6"
+-- 1
+
+main=interact$show.product.map signum.z.(read<$>).words where z[a,b]=enumFromTo a b
