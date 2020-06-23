@@ -86,3 +86,17 @@ p19_2=show.product.map(sum.map digitToInt).words
 
 -- p "3 32 12 50"
 -- 225
+
+main20=interact$p20
+p20 s=show$f20<$>(tail$lines s)
+f20 s=d20<$>read<$>words s::[Int]
+d20 [a,b]=min (y-x) (abs $ y-100+x)
+  where
+   x=min a b
+   y=max a b
+
+-- p "3\n3 7\n0 99\n30 40"
+
+-- 4
+-- 1
+-- 10
