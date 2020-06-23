@@ -95,8 +95,27 @@ d20 [a,b]=min (y-x) (abs $ y-100+x)
    x=min a b
    y=max a b
 
+main20_2=interact$unlines.map (show.(\[a,b]->min (mod (a-b) 100) (mod (b-a) 100)).map read.words).tail.lines
+
 -- p "3\n3 7\n0 99\n30 40"
 
 -- 4
 -- 1
 -- 10
+
+
+main21=interact$p21
+p21 s=show$drop=<<subtract 2.length$s
+d21="JFMAMJJASONDJF"
+f21=drop=<<subtract 2.length
+
+main21_2=interact$f21_2$cycle "JFMAMJJASOND"
+f21_2 (y:ys) (x:xs)
+ | x == y=f21_2 ys xs
+ | True     =f21_2 ys (x:xs)
+f21_2 (y:_) []=pure y
+
+main21_3=interact$pure.head.foldl(\x y->tail$dropWhile(/=y)x)(cycle"JFMAMJJASOND")
+
+-- JFMAMJJASON
+-- D
