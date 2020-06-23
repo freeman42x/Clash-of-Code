@@ -132,3 +132,12 @@ c22 [t,r]=(\i->(/10)$round$i*10)<$>[r * cos a, r * sin a]
 -- 10.4, 6.0
 
 main22_2=interact$intercalate", ".map(printf"%0.1f").(\[a,r]->let a'=(a::Double)*pi/180in[r*cos a',r*sin a']).map read.words
+
+main=interact$unlines.(unwords.reverse<$>).transpose.map words.drop 2.lines
+
+-- Take an NxM grid of numbers and return the MxN grid that results from rotating it 90 degrees clockwise.
+
+-- p "2\n3\n1 2 3\n4 5 6"
+-- 4 1
+-- 5 2
+-- 6 3

@@ -15,3 +15,8 @@ f(x:_:z)=zipWith g(repeat x)z")
 
 Feed an IO String to a function taking a String:
 putStrLn=<<ioString
+
+# Shorter
+
+map words
+(words<$>)
