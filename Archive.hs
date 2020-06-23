@@ -158,3 +158,32 @@ main26=interact$unlines.group.sort.map toLower.filter isAlpha.last.lines
 -- aaa
 -- bbbb
 -- ccc
+
+main27=interact$p27
+p27 s=show$zip a (concat$repeat b)
+ where(a,b)=(!!2)&&&(!!3)$lines s
+
+-- p "9\n5\n2 29 18 19 17 6 15 27 15\nAPPLE"
+
+-- CODINGAME
+
+main28=interact$p28
+p28 s=show$y
+ where
+  x=words s
+  y=filter((=='c').head)x
+  z=if null y then s++"covfefe"else""
+
+u=unwords
+g28_2 w i|i==w="covfefe"|1<2=i
+k28_2 i|elem"covfefe"i=u i|1<2=(u i)++"covfefe"
+h28_2 l=last$[" "]++[w|w<-l,(length w)==maximum(map length l)]
+f28_2 i=k28_2$map(g28_2$h28_2(filter(\x->head x=='c')i))i
+main28_2=interact$f28_2.words
+
+-- Your task is to replace the longest word starting by c in a tweet by covfefe.
+-- If no words starts by c, put covfefe at the end. If multiple words start by c and have the same length, choose the last to appear in the sentence.
+
+-- p "I have good coverage of spray tan"
+
+-- I have good covfefe of spray tan
