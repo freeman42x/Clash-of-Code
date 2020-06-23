@@ -2,10 +2,13 @@
 
 module Archive where
 
+import Control.Arrow
 import Data.Char
 import Data.List
 import Data.Bool
 import Data.Bits
+import Text.Printf
+import qualified Data.Text.Internal.Read as DTIR
 
 main0=interact$show.(`rem`10).foldr1(^).map read.words
 
@@ -41,3 +44,9 @@ main14=interact$head.head.filter ((==1).length).group.sort.tail.words
 -- 1
 
 main15=interact$show.popCount.(\c->read c::Int)
+
+main16=interact$p
+p s=[last$printf"%b"$(`uncurry`(read&&&(DTIR.hexDigitToInt.last.printf"%08x".(\z->read z::Int))$s))(*)]::String
+-- Given a number N, multiply it by the last character of its hexadecimal form, then print the last digit of its binary representation.
+-- 142359
+-- 1
