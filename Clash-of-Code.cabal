@@ -23,7 +23,9 @@ executable Clash-of-Code
                        Languages
   -- other-extensions:
   build-depends:       base,
-                       text
+                       containers,
+                       text,
+                       time
   -- hs-source-dirs:
   default-language:    Haskell2010
   default-extensions:  OverloadedStrings
