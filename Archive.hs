@@ -68,3 +68,21 @@ p17 s=r
 
 -- p "4\nShanghai 25\nMadrid 6\nBangkok 10\nManila 13\nMa"
 -- 19
+
+main18=interact$show.c18.read
+c18 n=any(\i->i^i+i==n)[1..n]
+
+c18_2 n=or[i^i+i==n|i<-[1..n]]
+
+-- 6
+-- True
+
+main19=interact$p19
+p19 s=show$product$sum.(digitToInt<$>)<$>words s
+p19_2=show.product.map(sum.map digitToInt).words
+
+-- Given a string of space separated numbers, calculate the product of all the sums of the digits of each number.
+-- e.g. given "3 32 12 50", the answer would be (3)*(3+2)*(1+2)*(5+0)=3*5*3*5=225, so you would output 225
+
+-- p "3 32 12 50"
+-- 225
