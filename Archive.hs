@@ -313,12 +313,19 @@ f34_2 i|rem(length(filter isAlpha i))2>0=i|1<2=map toUpper i
 -- I DON'T WANT you anymore! You are stressful.
 
 
-main=interact$p
-p s=unwords$map show$take(read s)$map f[1..]
-f 1=1
-f 2=1
-f n=f(f(n-1))+f(n-f(n-1))
+main35=interact$p35
+p35 s=unwords$map show$take(read s)$map f35[1..]
+f35 1=1
+f35 2=1
+f35 n=f35(f35(n-1))+f35(n-f35(n-1))
 
 -- a(1) = 1.
 -- a(2) = 1.
 -- a(n) = a(a(n - 1)) + a(n - a(n - 1)), for n > 2.
+
+
+main36=interact$p36
+p36 s=(show$sum$zipWith(\a b->if a==b then 0 else 1)x y)++" "++(show$3-(length$filter(=='.')s))where[x,y]=map (words.filter(\c->isAlpha c||c==' ')) [s,"I am not a good speller. Sometimes I mix up the spelling of words and sometimes I even forget to put periods. Please count the number of words I have misspelled and the number of periods I have missed."]
+
+-- p "i am not a good speller sometimes i mix up the spelling of words and sometimes i even forget to put periods please count the number of words i have misspelled and the number of periods i have missed"
+-- 7 3
