@@ -4,7 +4,9 @@ module Archive where
 
 import Control.Arrow
 import Data.Char
+import Data.Function
 import Data.List
+import Data.Maybe
 import Data.Bool
 import Data.Bits
 import Text.Printf
@@ -244,13 +246,60 @@ p32 s=if any(`isInfixOf`(map read$nub$words s))[[1..4],[2..5],[3..6]]then"true"e
 -- p "3 4 4 5 6"
 -- true
 
-import Data.List
-main=interact$p
-p s=show$(m++concat x++concat xs)
- where
-  (m:l:_:xs)=lines s
-  x=splitOn ',' l
+-- import Data.List
+-- main=interact$p
+-- p s=show$(m++concat x++concat xs)
+--  where
+--   (m:l:_:xs)=lines s
+--   x=splitOn ',' l
 
 -- p "10\nGum,Chips,Soda\n4\nChips,2\nIce Cream,5\nGum,1\nSoda,3"
 -- true
 -- 4
+
+-- main=interact$p
+-- p s=show$r
+--  where
+--   [w,p]=lines s
+--   r=foldr (\a (w,r) -> if a`elem`("xX"::String)
+--     then (tail w,head w:r)
+--     else (w, r)) (w,"") p
+
+-- p "sAmMyJr\nXxxxx, Xx."
+-- Sammy, Jr.
+
+
+-- main=interact$p
+-- p s=show$r
+--  where
+--   (m:l:x)=lines s
+--   r=(+1)$(*(read l))$(+1)$(`div`read m)$sum$map read x
+
+-- p "50\n5\n30\n10\n5\n0\n3"
+-- 6
+
+-- main=interact$p
+-- p s=show$h++concat l
+--  where
+--   (_:_:x)=lines s
+--   (h:l)=reverse x
+
+-- p "6\n2\nConnor HATES Miles\nMarion HATES Connor\nNeil Troy Marion Connor Miles Martin"
+-- false
+
+-- main=interact$p
+-- p s=show$r
+--  where
+--   [h,d,n]=map read$lines s::[Int]
+--   r=takeWhile 5$map x [1..]
+--   x n=foldr (+) 0$concat$take n$repeat[d,n]
+
+-- p "10\n3\n2"
+-- 8
+
+main33=interact$p33
+p33 s=fromJust$find(\z->((==)`on`(sort.map toLower)) z w)l
+ where(_:w:l)=lines s
+
+-- p "3\nBannaa\nFive\nBanana\nTree"
+-- Banana
