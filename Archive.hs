@@ -329,3 +329,7 @@ p36 s=(show$sum$zipWith(\a b->if a==b then 0 else 1)x y)++" "++(show$3-(length$f
 
 -- p "i am not a good speller sometimes i mix up the spelling of words and sometimes i even forget to put periods please count the number of words i have misspelled and the number of periods i have missed"
 -- 7 3
+
+main37=interact$f37.lines
+f37[n,c,s]|odd(read n)=(p37(read n)c s)>>=(++"\n")|1<2=(reverse(p37(read n +1)c s))>>=(++"\n")
+p37 n c s=[(([n-i-1,n-i-3..0])>>s)++(([1..i])>>c)++(([n-i-1,n-i-3..0])>>s)|i<-[1,3..n]]
