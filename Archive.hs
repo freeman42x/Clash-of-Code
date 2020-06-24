@@ -303,3 +303,22 @@ p33 s=fromJust$find(\z->((==)`on`(sort.map toLower)) z w)l
 
 -- p "3\nBannaa\nFive\nBanana\nTree"
 -- Banana
+
+main34=interact$unwords.map(\w->if even$length$filter isAlpha w then map toUpper w else w).words
+
+mainmain34_2=interact$unwords.(map f34_2).words
+f34_2 i|rem(length(filter isAlpha i))2>0=i|1<2=map toUpper i
+
+-- p "I don't want you anymore! You are stressful."
+-- I DON'T WANT you anymore! You are stressful.
+
+
+main=interact$p
+p s=unwords$map show$take(read s)$map f[1..]
+f 1=1
+f 2=1
+f n=f(f(n-1))+f(n-f(n-1))
+
+-- a(1) = 1.
+-- a(2) = 1.
+-- a(n) = a(a(n - 1)) + a(n - a(n - 1)), for n > 2.
