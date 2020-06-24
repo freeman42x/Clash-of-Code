@@ -236,3 +236,21 @@ p31 s=y
 -- g n(i,j)=div(j*100)n==i
 -- f[n,l]=[i|(i,j)<-filter(g(read n))[(read v,length$filter(==v)$w l)|v<-(nub(w l))]]
 -- main=interact$show.sum.f.lines
+
+
+main32=interact$p32
+p32 s=if any(`isInfixOf`(map read$nub$words s))[[1..4],[2..5],[3..6]]then"true"else"false"
+
+-- p "3 4 4 5 6"
+-- true
+
+import Data.List
+main=interact$p
+p s=show$(m++concat x++concat xs)
+ where
+  (m:l:_:xs)=lines s
+  x=splitOn ',' l
+
+-- p "10\nGum,Chips,Soda\n4\nChips,2\nIce Cream,5\nGum,1\nSoda,3"
+-- true
+-- 4
