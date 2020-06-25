@@ -360,3 +360,13 @@ p39 s=show$r
 
 -- p "11000101101"
 -- 477
+
+main40=interact$p40
+p40 s=show$x
+ where
+  (l:_:d)=lines s
+  x=map(fmap read.words)$d::[[Int]]
+  r=foldr (\a b -> b) [1..read l] x
+
+-- p "1000\n5\n0 4\n4 8\n1 5\n2 6\n3 7"
+-- 992
