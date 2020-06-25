@@ -370,3 +370,31 @@ p40 s=show$x
 
 -- p "1000\n5\n0 4\n4 8\n1 5\n2 6\n3 7"
 -- 992
+
+
+main41=interact$p41
+p41 s=c:" "++show l
+ where
+  a=sortOn length$group$s
+  x=last$a
+  l=length x
+  b=map head$filter((==l).length)a
+  c=fromJust$find(`elem`b)s
+  
+  
+main42=interact$p42
+p42 s=show$a$read d
+ where
+  [x,y,c,d]=lines s
+  a 1 = read x
+  a 2 = read y
+  a n = (o$head c) (a (n-2)) (a (n-1))
+  o '+'=(+)
+  o '-'=(-)
+  o '*'=(*)
+  o '/'=(/)
+
+-- p "-7\n19\n-\n36"
+-- 563510987
+
+-- There is a sequence a. The 1st input specifies a1, and the 2nd input specifies a2. Given an operator (the 3rd input), compute k+2th term in a, where a_n = a_{n-2} operator a_{n-1} (i.e. apply operator k times in the sequence). k is given as input 4.
