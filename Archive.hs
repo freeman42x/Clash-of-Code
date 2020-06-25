@@ -333,3 +333,30 @@ p36 s=(show$sum$zipWith(\a b->if a==b then 0 else 1)x y)++" "++(show$3-(length$f
 main37=interact$f37.lines
 f37[n,c,s]|odd(read n)=(p37(read n)c s)>>=(++"\n")|1<2=(reverse(p37(read n +1)c s))>>=(++"\n")
 p37 n c s=[(([n-i-1,n-i-3..0])>>s)++(([1..i])>>c)++(([n-i-1,n-i-3..0])>>s)|i<-[1,3..n]]
+
+
+-- main38=interact$p38
+-- p38 s=show$r
+--  where
+--   l=map read$words s::[Int]
+--   e=length l
+--   r=if odd$e
+--    then l!!(if odd e then e `div` 2 + 1 else e `div` 2)
+--    else (fromIntegral$sum l)/(fromIntegral$e)
+
+-- p "230 20 35 54 19 99"
+-- 77
+
+
+-- If the list contains even number of integers, return the average.
+-- If the list contains odd number of integers, return the median.
+
+main39=interact$p39
+p39 s=show$r
+ where
+  l=reverse$map (read.(:[])) s::[Int]
+  p=take 3$map ((-2)^)[0..]
+  r=sum$zipWith (*) l p
+
+-- p "11000101101"
+-- 477
