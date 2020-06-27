@@ -398,3 +398,51 @@ p42 s=show$a$read d
 -- 563510987
 
 -- There is a sequence a. The 1st input specifies a1, and the 2nd input specifies a2. Given an operator (the 3rd input), compute k+2th term in a, where a_n = a_{n-2} operator a_{n-1} (i.e. apply operator k times in the sequence). k is given as input 4.
+
+main43=interact$p43
+p43 s=unlines$r
+ where
+  x=tail$lines s
+  r=transpose x
+
+-- p "5 3\n.---.\n|---|\n.---."
+
+main44=interact$p44
+p44 s=show$r
+ where
+  x=read s::Int
+  (d,t)=x`divMod`86400000
+  (h,u)=t`divMod`3600000
+  (m,z)=u`divMod`60000
+  r=unwords$map(\(c,g)->show g++[c])$reverse$zip "zmhd" [z,m,h,d]
+
+  
+  
+-- p "12000000"
+
+-- 3h 20m
+
+-- 0d 0h 0m 0s
+
+main45=interact$p45
+p45 s=show$f$read n
+ where
+  [x,n]=lines s
+  [t,u]=map read$words x
+  g=(map f[0..]!!)
+  f 1=t
+  f 2=u
+  f m=g(m-1)+g(m-2)
+
+-- p "0 1\n3"
+-- 1
+
+main46=interact$p46
+p46 s=show$y
+ where
+  (_:x)=lines s
+  y=fromJust$find ((=='A').head) x
+  
+
+-- p "4\nA------X\n*-+-+-+-+-+-+-#\nX====*\n#_____Z"
+-- A------X====*-+-+-+-+-+-+-#_____Z
