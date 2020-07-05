@@ -446,3 +446,102 @@ p46 s=show$y
 
 -- p "4\nA------X\n*-+-+-+-+-+-+-#\nX====*\n#_____Z"
 -- A------X====*-+-+-+-+-+-+-#_____Z
+
+
+main47=interact$p47
+p47 s=if (s =="0" || s=="1") then "NONE" else  r
+ where
+  i=read s
+  r=show$fromJust$find (\n -> i `mod` n == 0) primes
+  primes = map head $ iterate (\(x:xs) -> [y | y<-xs, y `mod` x /= 0 ]) [2..]
+
+-- p "15"
+
+
+-- main48=interact$p48
+-- p48 s=map toLower$show$x
+--  where
+--   [o,a,b,r]=lines s
+--   x=zipWith (\(j, k) -> (f48 o) j k) (map g48 a) (map g48 b)
+  
+g48 '1' = True
+g48 '0' = False
+
+f48 "AND"=(&&)
+f48 "OR"=(||)
+f48 "XOR"=(/=)
+
+-- p "AND\n1\n0\n1"
+
+
+
+main49=interact$p49
+p49 s=show$g(n`mod`1000000007)
+ where
+  [n,a,b,c]=read<$>words s::[Integer]
+  g :: Integer -> Integer
+  g=genericIndex (map f[0..])
+  f :: Integer -> Integer
+  f 0=a
+  f 1=b
+  f 2=c
+  f m=g(m-1)+g(m-2)+g(m-3)
+
+
+-- p "3 4 5 6"
+-- 15
+
+
+-- g=(map f[0..]!!)
+-- f 1=t
+-- f 2=u
+-- f m=g(m-1)+g(m-2)
+
+
+main50=interact$p50
+p50 s=x
+ where
+  r=length $ filter (`elem`("aeiou"::String)) s
+  x=unlines$replicate r s
+
+-- p ""
+
+main51=interact$p51
+p51 s=show$x
+ where
+  x=foldr (\a (t, u) -> f a t u) (0, "") (reverse s)
+  f '.' t u=(t, u ++ [chr t])
+  f '+' t u=(t+1, u)
+  f '-' t u=(t-1, u)
+
+-- p "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+++++++++++++++++++++++++++++.+++++++..+++."
+
+main52=interact$concat.map g.group.map f52.words
+ where
+  g z =let l=length z in head z++if l>1 then show l else""
+
+f52"up"="^"
+f52"down"="v"
+f52"left"="<"
+f52"right"=">"
+
+
+-- p "right right right up up up"
+-- >3^3
+
+f53(x:y:xs)=[x,y]:f53 xs
+f53[]=[]
+main53=interact$map(chr.read.("0x"++)).f53.concat.transpose.f53
+
+
+g54[x,n]=product[(x-n+1)..x]
+main54=interact$show.g54.map read.words
+
+-- main=interact$p
+-- p s=t
+--  where
+--   [c,z]=lines s
+--   t=concat$map (\g->if head g==head c then show$length g else g)$group z
+
+-- p "l\nHello world."
+-- He2o wor1d.
