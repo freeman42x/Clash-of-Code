@@ -1,7 +1,7 @@
 main=interact$p
-p s=show$s
+p s=show$r
  where
-  =s
+  r=s
 
 
 
