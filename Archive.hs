@@ -380,8 +380,8 @@ p41 s=c:" "++show l
   l=length x
   b=map head$filter((==l).length)a
   c=fromJust$find(`elem`b)s
-  
-  
+
+
 main42=interact$p42
 p42 s=show$a$read d
  where
@@ -416,8 +416,8 @@ p44 s=show$r
   (m,z)=u`divMod`60000
   r=unwords$map(\(c,g)->show g++[c])$reverse$zip "zmhd" [z,m,h,d]
 
-  
-  
+
+
 -- p "12000000"
 
 -- 3h 20m
@@ -442,7 +442,7 @@ p46 s=show$y
  where
   (_:x)=lines s
   y=fromJust$find ((=='A').head) x
-  
+
 
 -- p "4\nA------X\n*-+-+-+-+-+-+-#\nX====*\n#_____Z"
 -- A------X====*-+-+-+-+-+-+-#_____Z
@@ -463,7 +463,7 @@ p47 s=if (s =="0" || s=="1") then "NONE" else  r
 --  where
 --   [o,a,b,r]=lines s
 --   x=zipWith (\(j, k) -> (f48 o) j k) (map g48 a) (map g48 b)
-  
+
 g48 '1' = True
 g48 '0' = False
 
@@ -545,3 +545,6 @@ main54=interact$show.g54.map read.words
 
 -- p "l\nHello world."
 -- He2o wor1d.
+
+main55=interact$f55.map read.words
+f55 x|or[a>sum[b|b<-x,a/=b]|a<-x]="false"|0<1="true"
