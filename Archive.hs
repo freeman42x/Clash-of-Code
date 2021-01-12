@@ -557,3 +557,6 @@ fib = (map fib' [0..] !!)
      where fib' 1 = 1
            fib' 2 = 1
            fib' n = fib (n-2) + fib (n-1)
+
+-- list of bits [Int] to binary
+f57 xs=foldl1((+).(2*)) xs
