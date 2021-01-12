@@ -551,3 +551,9 @@ f55 x|or[a>sum[b|b<-x,a/=b]|a<-x]="false"|0<1="true"
 
 -- prime
 f56 n=mod(product[1..n-1]^2)n>0
+
+-- fibonacci
+fib = (map fib' [0..] !!)
+     where fib' 1 = 1
+           fib' 2 = 1
+           fib' n = fib (n-2) + fib (n-1)
