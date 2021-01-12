@@ -1,3 +1,3 @@
 main=interact$e
-e w=d where
- d=show$w
+e w=show$d where
+ d=w
