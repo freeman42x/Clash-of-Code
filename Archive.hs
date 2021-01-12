@@ -548,3 +548,6 @@ main54=interact$show.g54.map read.words
 
 main55=interact$f55.map read.words
 f55 x|or[a>sum[b|b<-x,a/=b]|a<-x]="false"|0<1="true"
+
+-- prime
+f56 n=mod(product[1..n-1]^2)n>0
